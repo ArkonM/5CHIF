@@ -1,4 +1,5 @@
 #include "List.h"
+#include <iostream>
 
 void List::add(std::string name)
 {
@@ -27,8 +28,45 @@ void List::add(std::string name)
 
 void List::remove(std::string name)
 {
+	if (first->name == name && first != last) {
+		first = first->next;
+		delete first->prev;
+		first->prev == nullptr;
+	}
+	else if (first->name == name && first == last) {
+		delete first;
+		first = nullptr;
+		last = nullptr;
+	}
+	else if (first->name < name && name < last->name) {
+		first->remove(name);
+	}
+	else if (last->name == name) {
+		last = last->prev;
+		delete last->next;
+		last->next = nullptr;
+	}
+	else 
+	{
+		std::cout << "Name: \"" + name + "\" konnte nicht geloescht werden!" << std::endl;
+	}
 }
 
 void List::print()
 {
+
+	if (!first) {
+		std::cout << "Keine Liste vorhanden!" << std::endl;
+	}
+	else {
+
+		std::cout << "--------------PRINT!-------------" << std::endl;
+		Node* current = first;
+		while (current != last) {
+			std::cout << current->name << std::endl;
+			current = current->next;
+		}
+		std::cout << current->name << std::endl;
+
+	}
 }

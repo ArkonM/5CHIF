@@ -4,6 +4,7 @@
 
 Node::Node(std::string name)
 {
+	this->name = name;
 }
 
 void Node::add(std::string name)
@@ -22,8 +23,18 @@ void Node::add(std::string name)
 
 void Node::remove(std::string name)
 {
+	if (name == this->name) {
+		//delete
+		this->prev->next = this->next;
+		this->next->prev = this->prev;
+		delete this;
+	}
+	else {
+		this->next->remove(name);
+	}
 }
 
 void Node::print()
 {
+	
 }

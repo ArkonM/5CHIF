@@ -2,10 +2,21 @@
 //
 
 #include <iostream>
+#include "List.h"
+#include "Node.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    List list;
+    list.add("b");
+    list.add("a");
+    list.add("d");
+    list.add("c");
+    list.print();
+    list.remove("d");
+    list.add("y");
+    list.add("ab");
+    list.print();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
