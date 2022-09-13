@@ -1,2 +1,5 @@
-﻿  Verkettete Listen.cpp
+﻿  List.cpp
+D:\Github\5CHIF\POS - SCW\C++\Verkettete Listen\Verkettete Listen\List.cpp(37,15): warning C4553: '==': result of expression not used; did you intend '='?
+  Node.cpp
+  Generating Code...
   Verkettete Listen.vcxproj -> D:\Github\5CHIF\POS - SCW\C++\Verkettete Listen\x64\Debug\Verkettete Listen.exe

@@ -23,14 +23,18 @@ void Node::add(std::string name)
 
 void Node::remove(std::string name)
 {
-	if (name == this->name) {
-		//delete
-		this->prev->next = this->next;
-		this->next->prev = this->prev;
-		delete this;
-	}
-	else {
-		this->next->remove(name);
+	if (next) {
+		if (name == next->name) {
+			//delete
+			next = next->next;
+			next->prev->next = nullptr;
+			next->prev->prev = nullptr;
+			delete next->prev;
+			next->prev = this;
+		}
+		else {
+			next->remove(name);
+		}
 	}
 }
 

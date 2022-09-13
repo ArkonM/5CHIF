@@ -1,6 +1,8 @@
 #include "List.h"
 #include <iostream>
 
+
+
 void List::add(std::string name)
 {
 	if (!first) {
@@ -30,19 +32,21 @@ void List::remove(std::string name)
 {
 	if (first->name == name && first != last) {
 		first = first->next;
+		first->prev->next = nullptr;
 		delete first->prev;
 		first->prev == nullptr;
 	}
 	else if (first->name == name && first == last) {
 		delete first;
 		first = nullptr;
-		last = nullptr;
+		last = first;
 	}
 	else if (first->name < name && name < last->name) {
 		first->remove(name);
 	}
 	else if (last->name == name) {
 		last = last->prev;
+		last->next->prev = nullptr;
 		delete last->next;
 		last->next = nullptr;
 	}
