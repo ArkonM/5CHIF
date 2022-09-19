@@ -17,36 +17,31 @@ string generateWord(string word_list[]) {
 }
 
 
-string checkWordSimilarity(string input_word, string solution_word, string discovered_word) {
-    
-    for (int i = 0; i < input_word.length(); i++) {
-        
-        
-
-    }
-    return input_word;
-}
-
-
-void print(string solution_word, string discovered_letters) {
+string checkWordSimilarity(string solution_word, string discovered_letters) {
 
     bool word_found = false;
+    string parts_found = "";
 
     for (int i = 0; i < solution_word.length(); i++) {
-        for (int y = 0; y < discovered_letters.length(); y++) {
-            if (tolower(solution_word[i]) == tolower(discovered_letters[y]) && !word_found) {
-                cout << solution_word[i] + " ";
+        for (int y = 0; y < discovered_letters.length() && !word_found; y++) {
+            if (tolower(solution_word[i]) == tolower(discovered_letters[y])) {
+                discovered_letters.push_back(solution_word[i]);
+                parts_found.push_back(solution_word[i]);
+                parts_found.push_back(' ');
                 word_found = true;
+            }
+            else if( && !word_found) {
+                cout << "Der Buchstabe: " << discovered_letters[0] << " war leider falsch!" << endl;
             }
         }
         if (!word_found) {
-            cout << "_ ";
+            parts_found.append("_ ");
         }
         else {
             word_found = false;
         }
     }
-    cout << endl;
+    return parts_found;
 }
 
 
@@ -61,8 +56,11 @@ int main()
 
     while (inputText != "STOP") {
         cin >> inputText;
-        discoveredLetters.append(inputText);
-        print(solution, discoveredLetters);
+
+        discoveredLetters = checkWordSimilarity(solution, inputText.append(discoveredLetters));
+
+        cout << discoveredLetters << endl;
+        
     }
 
 
