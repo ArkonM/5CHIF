@@ -30,9 +30,9 @@ string checkWordSimilarity(string solution_word, string discovered_letters) {
                 parts_found.push_back(' ');
                 word_found = true;
             }
-            else if( && !word_found) {
+            /*else if (!word_found) {
                 cout << "Der Buchstabe: " << discovered_letters[0] << " war leider falsch!" << endl;
-            }
+            }*/
         }
         if (!word_found) {
             parts_found.append("_ ");
@@ -54,7 +54,7 @@ int main()
     string wordList[] = { "Test", "Hangman", "Armin", "Sebi" };
     solution = generateWord(wordList);
 
-    while (inputText != "STOP") {
+    while (true) {
         cin >> inputText;
 
         discoveredLetters = checkWordSimilarity(solution, inputText.append(discoveredLetters));
