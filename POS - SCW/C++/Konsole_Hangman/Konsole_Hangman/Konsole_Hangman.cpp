@@ -53,6 +53,9 @@ bool checkWin(string discovered_letters) {
         if (discovered_letters[i] == '_') {
             return false;
         }
+        else if (lifesLeft == 0) {
+            return true;
+        }
     }
     return true;
 }
@@ -64,7 +67,7 @@ void zeroLifes() {
     cout << "  |      o" << endl;
     cout << "  |     \\|/" << endl;
     cout << "  |      |" << endl;
-    cout << "  |    _/ \_" << endl;
+    cout << "  |    _/ \\_" << endl;
     cout << "=====" << endl;
     cout << "|   |" << endl;
     return;
