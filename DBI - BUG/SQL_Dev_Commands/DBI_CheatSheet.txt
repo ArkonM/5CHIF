@@ -1,0 +1,50 @@
+clear screen;
+
+desc dba_tablespaces;
+
+select tablespace_name
+  from dba_tablespaces;
+  
+select file_name, tablespace_name
+  from dba_data_files;
+  
+  --create tablespace
+  
+create tablespace streets
+       datafile 'c:\ora18cxe\oradata\xe\streets.dbf'
+       size 10m reuse
+       autoextend on maxsize 30m;
+       
+--user anlegen       
+create user streets identified by topsecret
+       default tablespace streets
+       temporary tablespace temp
+;
+
+--Ablauf vom Benutzerpasswort
+--alter profile default limit password_life_time unlimited;
+      
+--Rechte zuweisen
+grant connect, resource to streets;
+
+alter user streets
+    quota unlimited on streets
+    quota 10m on users;
+
+--change password of streets
+alter user streets identified by streets;
+
+
+--Benutzerkonto sperren und entsperren
+alter user hr account unlock; --mit lock sperren
+
+--Benutzerkonto verwerfen
+drop user streets cascade; 
+
+--tablespace verwerfen
+drop tablespace streets
+     including contents and datafiles
+     cascade constraints;
+
+select file_name, tablespace_name
+  from dba_data_files;
