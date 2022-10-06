@@ -32,7 +32,7 @@
 
 #ifndef INCLUDE_EXPRTK_HPP
 #define INCLUDE_EXPRTK_HPP
-
+#define exprtk_disable_enhanced_features
 
 #include <algorithm>
 #include <cassert>

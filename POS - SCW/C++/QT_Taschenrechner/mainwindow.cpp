@@ -267,28 +267,23 @@ void MainWindow::on_BResult_clicked()
     if(checkBrackets() == 0){
         QString inputText = ui->InputAndResult->text();
         QString historyText = ui->History->text();
-        historyText.append(inputText + " =");
+        historyText.append(inputText);
+
+        std::string toCalcString = historyText.toStdString();
+        historyText.append(" =");
+
         ui->History->setText(historyText);
         ui->InputAndResult->setText("");
 
-        typedef double T;
-        typedef exprtk::expression<T>   expression_t;
-        typedef exprtk::parser<T>       parser_t;
+        exprtk::parser<double> parser;
+        exprtk::expression<double> expression;
+        double result = 0.0;
 
-        std::string toCalcString = historyText.toStdString();
-
-        expression_t expression;
-        parser_t parser;
-
-        if (!parser.compile(toCalcString, expression))
-         {
-            ui->InputAndResult->setText("Compilation error...\n");
-            return;
-         }
-
-         ui->InputAndResult->setText(QString::number(expression.value()));
-
-
+        if (parser.compile(toCalcString, expression))
+        {
+             result = expression.value();
+             ui->InputAndResult->setText(QString::number(result));
+        }
     }
 }
 
