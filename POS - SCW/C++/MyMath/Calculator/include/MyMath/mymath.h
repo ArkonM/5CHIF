@@ -1,1 +1,0 @@
-double calculate(std::string);
