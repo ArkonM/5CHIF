@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "exprtk.hpp"
+#include "include/calclib.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,6 +19,11 @@ MainWindow::~MainWindow()
 
 //Fügt die eingegebene Nummer zur Anzeige hinzu
 void MainWindow::addSymbol(QString input) {
+
+    if(ui->History->text().size() != 0 && ui->History->text()[ui->History->text().size()-1] == '='){
+        ui->History->setText("");
+        ui->InputAndResult->setText("");
+    }
 
     QString text = ui->InputAndResult->text();
 
@@ -269,21 +274,12 @@ void MainWindow::on_BResult_clicked()
         QString historyText = ui->History->text();
         historyText.append(inputText);
 
-        std::string toCalcString = historyText.toStdString();
+        double result = calculate(historyText);
         historyText.append(" =");
 
         ui->History->setText(historyText);
         ui->InputAndResult->setText("");
-
-        exprtk::parser<double> parser;
-        exprtk::expression<double> expression;
-        double result = 0.0;
-
-        if (parser.compile(toCalcString, expression))
-        {
-             result = expression.value();
-             ui->InputAndResult->setText(QString::number(result));
-        }
+        ui->InputAndResult->setText(QString::number(result));
     }
 }
 

@@ -4,7 +4,7 @@ TEMPLATE = lib
 CONFIG += staticlib
 
 CONFIG += c++17
-QMAKE_CXXFLAGS += -m64 -Wa,-mbig-obj
+QMAKE_CXXFLAGS += -bigobj
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.

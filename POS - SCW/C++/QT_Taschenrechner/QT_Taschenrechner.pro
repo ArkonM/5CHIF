@@ -3,7 +3,7 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
-QMAKE_CXXFLAGS += -m64 -Wa,-mbig-obj
+QMAKE_CXXFLAGS += -bigobj
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -14,14 +14,19 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    include/calclib.h \
+    mainwindow.h \
+
 
 FORMS += \
     mainwindow.ui
 
-win32:LIBS += "C:\GitHub\5CHIF\POS - SCW\C++\QT_Taschenrechner\lib\libCalcLib.a"
+LIBS += -L"D:\Github\5CHIF\POS - SCW\C++\QT_Taschenrechner\lib" -lCalcLib
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    lib/CalcLib.lib
