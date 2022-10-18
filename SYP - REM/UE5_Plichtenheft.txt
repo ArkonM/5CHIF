@@ -1,0 +1,42 @@
+Nutzenziele
+-Geringere Warteschlangen an dem Buffet
+-Mehr Umsatz
+-Mehr Kunden
+-Statistiken über meistverkaufte Produkte
+-Geringe Wartezeit
+
+Systemziele
+-Menü online abfragbar
+-Gute Ausfallsicherheit
+-Backups
+-Gute Wartbarkeit
+-Stornierbarkeit der Bestellungen
+
+Zeitliche Anforderungen
+-In der Meilensteinliste beschrieben
+
+Anforderungen and die Applikation
+-Warenkorb für die ausgewählten Produkte
+-Nutzerfreundlich muss gegeben sein
+-Aktuell halten des Menüs soll für die Mitarbeiter einfach sein
+-Einfaches bezahlen über PayPal
+-Das System muss zwischen 7:50 und 14:30 Uhr zu 99% verfügbar sein
+
+Anforderungen and die IT Infrastruktur
+-PayPal Schnittstelle
+-Server
+-Netzwerkstruktur
+-Backups
+-Systemadmin
+
+Anbieteranforderungen
+-Referenzprojekte
+-Zeitliche Umsetzung
+-ITIL Zertifiziert
+-Preismäßig gut
+-ISO Zertifiziert
+
+Mengen
+-Lehrer 500
+-Schüler 1500
+Spitzenzeiten zwischen 9:35 und 10:20 Uhr
