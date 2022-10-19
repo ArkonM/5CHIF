@@ -1,0 +1,22 @@
+ --Tablespacename = <tablespace>
+ --Username = <user>
+ 
+ --create tablespace
+  
+create tablespace <tablespace>
+       datafile 'c:\ora18cxe\oradata\xe\<tablespace>.dbf'
+       size 10m reuse
+       autoextend on maxsize 30m;
+       
+--user anlegen       
+create user <user> identified by topsecret
+       default tablespace <tablespace>
+       temporary tablespace temp
+;
+      
+--Rechte zuweisen
+grant connect, resource to <user>;
+
+alter user <user>
+    quota unlimited on <tablespace>
+    quota 10m on users;

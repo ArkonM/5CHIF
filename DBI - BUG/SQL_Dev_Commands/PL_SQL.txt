@@ -1,0 +1,9 @@
+declare
+    <variable_name> <data_type>(size) := <data>
+begin
+    <code>
+    
+    insert into <table> values (<values>);
+end;
+/
+show errors
