@@ -1,0 +1,12 @@
+#ifndef TINYXML2LIB_GLOBAL_H
+#define TINYXML2LIB_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(TINYXML2LIB_LIBRARY)
+#  define TINYXML2LIB_EXPORT Q_DECL_EXPORT
+#else
+#  define TINYXML2LIB_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // TINYXML2LIB_GLOBAL_H
