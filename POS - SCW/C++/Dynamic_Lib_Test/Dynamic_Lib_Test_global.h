@@ -1,0 +1,12 @@
+#ifndef DYNAMIC_LIB_TEST_GLOBAL_H
+#define DYNAMIC_LIB_TEST_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(DYNAMIC_LIB_TEST_LIBRARY)
+#  define DYNAMIC_LIB_TEST_EXPORT Q_DECL_EXPORT
+#else
+#  define DYNAMIC_LIB_TEST_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // DYNAMIC_LIB_TEST_GLOBAL_H

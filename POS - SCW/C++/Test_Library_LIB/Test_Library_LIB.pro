@@ -4,18 +4,16 @@ TEMPLATE = lib
 CONFIG += staticlib
 
 CONFIG += c++17
-QMAKE_CXXFLAGS += -bigobj
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    calclib.cpp
+    test_library_lib.cpp
 
 HEADERS += \
-    calclib.h \
-    exprtk.hpp
+    test_library_lib.h
 
 # Default rules for deployment.
 unix {

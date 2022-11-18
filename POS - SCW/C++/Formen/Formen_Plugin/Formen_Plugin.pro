@@ -1,24 +1,30 @@
-QT -= gui
+QT += core gui
 
 TEMPLATE = lib
-CONFIG += staticlib
+DEFINES += PLUGIN_LIBRARY
 
 CONFIG += c++17
-QMAKE_CXXFLAGS += -bigobj
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+DEPENDPATH += sdk
+INCLUDEPATH += $$PWD/sdk/include/
+LIBS += -L$$PWD/sdk/lib/debug -lFormen_Factory
+
 SOURCES += \
-    calclib.cpp
+    circle.cpp \
+    register.cpp \
+    square.cpp
 
 HEADERS += \
-    calclib.h \
-    exprtk.hpp
+    circle.h \
+    register.h \
+    square.h
 
 # Default rules for deployment.
 unix {
-    target.path = $$[QT_INSTALL_PLUGINS]/generic
+    target.path = /usr/lib
 }
 !isEmpty(target.path): INSTALLS += target
