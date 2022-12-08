@@ -14,12 +14,12 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QComboBox" name="Flugline">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>50</y>
-      <width>113</width>
+      <x>100</x>
+      <y>20</y>
+      <width>111</width>
       <height>26</height>
      </rect>
     </property>

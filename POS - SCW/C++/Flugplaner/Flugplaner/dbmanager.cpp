@@ -1,5 +1,8 @@
 #include "dbmanager.h"
 #include "qdebug.h"
+#include <QSqlQuery>
+#include <QSqlDatabase>
+#include <QSqlRecord>
 #include <QString>
 
 DbManager::DbManager(const QString& path)
@@ -18,16 +21,3 @@ DbManager::DbManager(const QString& path)
 }
 
 
-QSqlQuery DbManager::Db_Search(QString search){
-    /*QSqlQuery query{};
-    query.prepare("SELECT name FROM people WHERE name = (:name)");
-    query.bindValue(":name", name);
-
-    if (query.exec())
-    {
-       if (query.next())
-       {
-          // it exists
-       }
-    }*/
-}

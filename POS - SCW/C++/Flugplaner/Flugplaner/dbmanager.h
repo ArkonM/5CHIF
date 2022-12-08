@@ -11,7 +11,6 @@ public:
     DbManager(const QString& path);
 private:
     QSqlDatabase m_db;
-    QString filePath;
 };
 
 #endif // DBMANAGER_H

@@ -7,9 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QString path = "./Flugplaner_Ressource/AirlineRoutes.db";
+    QString path = "D:/Github/5CHIF/POS - SCW/C++/Flugplaner/Flugplaner/Flugplaner_Ressource/AirlineRoutes.db";
     DbManager db = DbManager(path);
-    ui->lineEdit->setText();
 }
 
 MainWindow::~MainWindow()
