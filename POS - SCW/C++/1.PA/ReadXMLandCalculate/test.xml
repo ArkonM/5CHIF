@@ -1,31 +1,31 @@
 <p>
     <calc>
         <first>
-		2
-	</first>
+        2
+    </first>
         <second>
-		5
-	</second>
+        5
+    </second>
         <operator>+</operator>
         <result>7</result>
     </calc>
     <calc>
         <first>
-		1
-	</first>
+        1
+    </first>
         <second>
-		57
-	</second>
+        57
+    </second>
         <operator>-</operator>
         <result>-56</result>
     </calc>
     <calc>
         <first>
-		1
-	</first>
+        1
+    </first>
         <second>
-		57
-	</second>
+        57
+    </second>
         <operator>*</operator>
         <result>57</result>
     </calc>
