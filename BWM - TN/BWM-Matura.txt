@@ -1,0 +1,19 @@
+Kaufvertrag (Band-1)
+Definieren Kaufvertrag
+Ein Kaufvertrag ist ein verbindliches zweiseitiges geschäft, bei dem man um die Ware und den Preis handelt.
+Ware wird gegen Geld getauscht.
+Tauschgeschäft: Ware gegen Ware tauschen.
+
+1. Anfrage (Gibts das, Wiviel kostets)
+2. Angebot (Wenn vorhanden)
+3. Kaufvertrag (Wenn auf das Angebot eingegangen wird)
+
+Das Geschäfft muss
+Freiwillig(nicht erzwungen), Erlaubt(Legal), Möglich(Grundstück auf dem Mond zB) und beide Geschäfftspartner
+müssen Geschäfftsfähig(bis 7 nichtgeschäfftsfähig, 7 bis 14 beschränkt geschäfftsfähig, 14 bis 18 erweitert geschäfftsfähig, ab 18 voll geschäfftsfähig)
+
+UGB, ABGB, EComerce
+Esaunce? handelsübliche sachen wie: 24 Flaschen in einer Box o.ä.
+
+S.42 Ü3.11
+Verschiedene Kaufverträge
