@@ -1,9 +1,24 @@
+s20170592
 PL/SQL data types: a set of data types that are specific to PL/SQL, such as NUMBER, VARCHAR2, and BOOLEAN
+
 SQL data types: a set of data types that are used in SQL, such as CHAR, VARCHAR, and INTEGER
-Built-in packages: a set of pre-defined packages that are provided by Oracle and can be used to perform common tasks, such as handling dates and times or generating random numbers
+
+Built-in packages: a set of pre-defined packages that are provided by Oracle and can be used
+to perform common tasks, such as handling dates and times or generating random numbers
+
 User-defined packages: packages that are created by the user and can be used to group and organize custom PL/SQL code
-Package header and body: the two main sections of a package, where the header defines the public items that can be called from outside the package, and the body contains the implementation of those items as well as any private items
-Package initialization section: a section in the body of a package where developers can specify code that is executed when the package is first used in a session
-Package subprograms: procedures and functions that are defined in the body of a package and can be called from within the package or from outside the package, depending on their visibility
-Package variables and types: private items that are defined in the body of a package and can only be accessed within the package, such as package-level variables and user-defined types
-Package overloading: the ability to use the same name for multiple subprograms in a package, with different numbers or types of parameters
+
+Package header and body: the two main sections of a package, where the header defines the
+public items that can be called from outside the package, and the body contains the implementation of those items as well as any private items
+
+Package initialization section: a section in the body of a package where developers can
+specify code that is executed when the package is first used in a session
+
+Package subprograms: procedures and functions that are defined in the body of a package and
+can be called from within the package or from outside the package, depending on their visibility
+
+Package variables and types: private items that are defined in the body of a package and can
+only be accessed within the package, such as package-level variables and user-defined types
+
+Package overloading: the ability to use the same name for multiple subprograms in a package,
+with different numbers or types of parameters
