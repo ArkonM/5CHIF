@@ -1,0 +1,19 @@
+s20170592
+
+
+PL/SQL is a programming language used to access and manipulate data in Oracle Database
+
+PL/SQL combines SQL with a procedural language for executing complex queries and programmatic logic inside the database engine
+
+There are three data types for working with dates and times in PL/SQL: DATE, TIMESTAMP, and INTERVAL
+
+The DATE data type stores a date and time resolved to the second and does not include a time zone
+
+The TIMESTAMP data type is similar to DATE but can store and manipulate times resolved to the nearest billionth of a second and can include a time zone
+
+The INTERVAL data type records and computes a time duration that can be specified in terms of years and months or days and seconds
+
+Oracle Database and PL/SQL provide built-in functions for manipulating dates and times
+
+When working with dates and times in PL/SQL, consider factors such as subsecond precision, storage requirements,
+and the need for time zone information in order to choose the appropriate data type and functions
