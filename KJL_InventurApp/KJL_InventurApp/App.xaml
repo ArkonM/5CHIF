@@ -1,0 +1,24 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:KJL_InventurApp"
+             x:Class="KJL_InventurApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="KJL-Green">#004225</Color>
+            <Color x:Key="KJL-Blue">#0F7FA7</Color>
+            <Color x:Key="BackgroundColor">White</Color>
+            
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource KJL-Blue}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

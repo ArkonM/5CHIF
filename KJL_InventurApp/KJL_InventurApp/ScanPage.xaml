@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KJL_InventurApp.ScanPage"
+             Shell.NavBarIsVisible="True" 
+             NavigationPage.HasBackButton="False"
+             NavigationPage.IconColor="{StaticResource KJL-Blue}"
+             Title="Inventur-Scanner">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
