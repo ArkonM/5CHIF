@@ -7,9 +7,14 @@
              NavigationPage.IconColor="{StaticResource KJL-Blue}"
              Title="Inventur-Scanner">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <!--
+        <zxing:CameraBarcodeReaderView
+            
+            Grid.ColumnSpan="2"
+                
+            x:Name="barcodeReader"
+            IsDetecting="True" 
+            IsTorchOn="False"
+            BarcodesDetectd="CameraBarcodeReaderView_BarcodesDetected"/>-->
     </VerticalStackLayout>
 </ContentPage>

@@ -6,17 +6,14 @@
     xmlns:local="clr-namespace:KJL_InventurApp"
     FlyoutBehavior="Flyout" FlyoutHeaderBehavior="Fixed" FlyoutVerticalScrollMode="Auto">
 
-    <FlyoutItem Title="Ausloggen" Icon="tab_home.svg">
-        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
-    </FlyoutItem>
 
     <ShellContent
-        Title="loginPage"
+        Title="Ausloggen"
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="loginPage" />
 
     <ShellContent
-        Title="scanPage"
+        Title="Scan-Seite"
         ContentTemplate="{DataTemplate local:ScanPage}"
         Route="ScanPage" />
 
