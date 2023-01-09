@@ -1,0 +1,31 @@
+s20170592
+
+What is a collection
+A collection is an ordered group of element, all of the same type
+Similar to single dimensional Arrays
+
+Collections are generally much faster than using SQL
+Collections enable BULK COLLECT and FORALL to boost multi-row SQL performance
+
+Collections are generally much, much faster because it is located in the PGA memory (Process Global Area)
+Accessing PGA memory is quicker than accessing SGA memory
+
+Collections use more memory per session but improve performance.
+
+
+Collection types
+Associative arrays - PL/SQL-only datatype
+
+Nested table
+Varray (varying arrays) - can both be used in PL/SQL blocks as well as within SQL layer
+
+Each type has its own characteristics and is best suited to different circumstances
+
+
+Element - row
+Index value - row number
+Dense - Every index value between lowest and highest has a defined element
+Sparse - One or more values between lowest and highest may be undefined
+
+Elements in a collection are accessed with their unique index number
+
