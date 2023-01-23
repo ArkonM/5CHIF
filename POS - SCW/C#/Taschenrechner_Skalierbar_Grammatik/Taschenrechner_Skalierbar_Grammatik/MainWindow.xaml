@@ -1,0 +1,121 @@
+﻿<Window x:Class="Taschenrechner_Skalierbar_Grammatik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="726" Width="385">
+
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="NumberButton" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="10" BorderThickness="2" BorderBrush="Black" Background="White" Margin="5">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="ImportantButton" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="10" BorderThickness="2" BorderBrush="Black" Background="#d87c7c" Margin="5">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="CalcluateButton" TargetType="{x:Type Button}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="10" BorderThickness="2" BorderBrush="Black" Background="#cccaca" Margin="5">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+
+            <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border CornerRadius="10" BorderThickness="1" BorderBrush="Black" Background="#d6d5d5" Margin="5">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="calcHistory_TxB" IsEnabled="False" Style="{StaticResource TextBoxStyle}"/>
+        <Button x:Name="clear_Btn" Grid.Column="1" Content="Clear" Style="{StaticResource ImportantButton}"/>
+
+        <TextBox x:Name="calcInput_TxB" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource TextBoxStyle}"/>
+
+        <UniformGrid Grid.Row="2" Grid.ColumnSpan="2" Rows="1" Columns="5">
+            <Button x:Name="input_Btn_KlammerAuf" Content="(" Style="{StaticResource CalcluateButton}"/>
+            <Button x:Name="input_Btn_KlammerZu" Content=")" Style="{StaticResource CalcluateButton}"/>
+            <Button x:Name="input_Btn_Square" Content="^" Style="{StaticResource CalcluateButton}"/>
+            <Button x:Name="input_Btn_Delete" Content="Delete" Style="{StaticResource ImportantButton}"/>
+            <Button x:Name="input_Btn_Plus" Content="+" Style="{StaticResource CalcluateButton}"/>
+        </UniformGrid>
+
+        <UniformGrid Grid.Row="3" Grid.RowSpan="4" Grid.ColumnSpan="2" Rows="4" Columns="4">
+
+            <Button x:Name="input_Btn_7" Content="7" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_8" Content="8" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_9" Content="9" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_Minus" Content="-" Style="{StaticResource CalcluateButton}"/>
+
+            <Button x:Name="input_Btn_4" Content="4" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_5" Content="5" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_6" Content="6" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_Mal" Content="*" Style="{StaticResource CalcluateButton}"/>
+
+            <Button x:Name="input_Btn_1" Content="1" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_2" Content="2" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_3" Content="3" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_Divide" Content="/" Style="{StaticResource CalcluateButton}"/>
+
+            <Button x:Name="input_Btn_Vorzeichen" Content="+/-" Style="{StaticResource CalcluateButton}"/>
+            <Button x:Name="input_Btn_0" Content="0" Style="{StaticResource NumberButton}"/>
+            <Button x:Name="input_Btn_Comma" Content="," Style="{StaticResource CalcluateButton}"/>
+            <Button x:Name="input_Btn_Equals" Content="=" Style="{StaticResource CalcluateButton}"/>
+
+        </UniformGrid>
+    </Grid>
+
+</Window>

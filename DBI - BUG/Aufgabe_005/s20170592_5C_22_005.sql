@@ -72,17 +72,22 @@ end;
 /
 
 
---s20170592
---Quiz d)
+clear screen;
+----s20170592 c)
 declare
-    l_names dbms_utility.maxname_array;
+	l_names dbms_utility.maxname_array;
 begin
-    l_names (1) := 'Strawberry';
-    l_names (10) := 'Blackberry';
-    l_names (2) := 'Raspberry';
-    for indx in l_names.first .. l_names.last
-    loop
-        dbms_output.put_line (l_names (indx));
-    end loop;
+	l_names (1) := 'Strawberry';
+	l_names (10) := 'Blackberry';
+	l_names (2) := 'Raspberry';
+declare
+	indx pls_integer := l_names.first;
+begin
+	while (indx IS NOT NULL)
+	loop
+		dbms_output.put_line (l_names (indx));
+		indx := l_names.next (indx);
+	end loop;
+	end;
 end;
-/
+/
