@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Taschenrechner_Skalierbar_Grammatik
 {
-    
-
-
     public partial class MainWindow : Window
     {
         public MainWindow()
