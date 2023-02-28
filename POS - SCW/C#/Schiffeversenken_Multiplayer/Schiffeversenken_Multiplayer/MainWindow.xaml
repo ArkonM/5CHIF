@@ -1,0 +1,56 @@
+﻿<Window x:Class="Schiffeversenken_Multiplayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        
+
+
+
+        <ListBox x:Name="FieldsBox" ItemsSource="{Binding Path=Fields}" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="{Binding Path=Columns}" x:Name="UniformFieldsBox"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderBrush="LightGray" BorderThickness="3"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Label Content="Rows: "/>
+            <TextBox Text="{Binding Path=Rows}"/>
+
+            <Label Content="Columns: "/>
+            <TextBox Text="{Binding Path=Columns}"/>
+
+            <Button Content="Bestätigen" IsEnabled="{Binding Path=NotConfirmed}" Click="Confirm_Button"/>
+        </StackPanel>
+
+
+        <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="White" Visibility="{Binding Path=PlayerSelection}"/>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical" Margin="80,0,80,0" VerticalAlignment="Center" Visibility="{Binding Path=PlayerSelection}">
+            <Button FontSize="25" Content="Server" Margin="20" Height="50" Click="Button_Click_1"/>
+            <Button FontSize="25" Content="Client" Margin="20" Height="50"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
