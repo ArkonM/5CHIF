@@ -31,24 +31,27 @@ namespace Schiffeversenken_Multiplayer
             public int Y { get; set; }
         }
 
-        public class PlayingField : INotifyPropertyChanged
+        public class PlayingField
         {
+            public int Rows { get; set; }
+            public int Columns {  get; set; }
 
-            public event PropertyChangedEventHandler? PropertyChanged;
+            public bool NotConfirmed { get; set; }
+
+            public bool PlayerSelection { get; set; }
         }
 
         public ObservableCollection<Field> Fields { get; set; } = new ObservableCollection<Field>();
 
-        public int Rows { get; set; } = 10;
-        public int Columns { get; set; } = 10;
-        public bool NotConfirmed { get; set; } = true;
-
-        public bool PlayerSelection { get; set; } = true;
+        public PlayingField Config = new PlayingField();
 
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
+            Config.PlayerSelection = false;
+            Config.Rows = 10;
+            Config.Columns = 10;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -75,9 +78,9 @@ namespace Schiffeversenken_Multiplayer
         private void Confirm_Button(object sender, RoutedEventArgs e)
         {
             Fields.Clear();
-            for (int x = 0; x < Rows; x++)
+            for (int x = 0; x < Config.Rows; x++)
             {
-                for (int y = 0; y < Columns; y++)
+                for (int y = 0; y < Config.Columns; y++)
                 {
 
                     Fields.Add(new Field() { X = x, Y = y });
@@ -87,7 +90,7 @@ namespace Schiffeversenken_Multiplayer
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            PlayerSelection = false;
+            Config.PlayerSelection = false;
         }
     }
 }

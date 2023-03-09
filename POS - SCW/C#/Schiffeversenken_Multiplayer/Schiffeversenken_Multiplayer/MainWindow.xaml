@@ -37,17 +37,17 @@
 
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <Label Content="Rows: "/>
-            <TextBox Text="{Binding Path=Rows}"/>
+            <TextBox Text="{Binding Path=Config.Rows}"/>
 
             <Label Content="Columns: "/>
-            <TextBox Text="{Binding Path=Columns}"/>
+            <TextBox Text="{Binding Path=Config.Columns}"/>
 
-            <Button Content="Bestätigen" IsEnabled="{Binding Path=NotConfirmed}" Click="Confirm_Button"/>
+            <Button Content="Bestätigen" IsEnabled="{Binding Path=Config.NotConfirmed}" Click="Confirm_Button"/>
         </StackPanel>
 
 
-        <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="White" Visibility="{Binding Path=PlayerSelection}"/>
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical" Margin="80,0,80,0" VerticalAlignment="Center" Visibility="{Binding Path=PlayerSelection}">
+        <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="White" Visibility="Hidden"/>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical" Margin="80,0,80,0" VerticalAlignment="Center" Visibility="Hidden">
             <Button FontSize="25" Content="Server" Margin="20" Height="50" Click="Button_Click_1"/>
             <Button FontSize="25" Content="Client" Margin="20" Height="50"/>
         </StackPanel>
