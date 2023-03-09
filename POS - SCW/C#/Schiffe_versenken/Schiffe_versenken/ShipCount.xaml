@@ -1,0 +1,22 @@
+﻿<Window x:Class="Schiffe_versenken.ShipCount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Schiffe_versenken"
+        mc:Ignorable="d"
+        Title="ShipCount" Height="300" Width="231">
+    <Grid>
+        <StackPanel>
+            <Label x:Name="UBoot" Content="U-Boot (2)"></Label>
+            <TextBox x:Name="UBootBox"></TextBox>
+            <Label x:Name="Destroyer" Content="Destroyer (3)"></Label>
+            <TextBox x:Name="DestroyerBox"></TextBox>
+            <Label x:Name="Battleship" Content="Battleship (4)"></Label>
+            <TextBox x:Name="BattleshipBox"></TextBox>
+            <Label x:Name="Carrier" Content="Carrier (5)"></Label>
+            <TextBox x:Name="CarrierBox"></TextBox>
+            <Button x:Name="SubmitButton" Content="Submit" Click="SubmitButton_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
