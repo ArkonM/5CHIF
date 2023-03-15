@@ -75,7 +75,7 @@ namespace Schiffe_versenken
         }
     }
 
-    /// <summary>
+    /// <summary>   
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
@@ -148,6 +148,7 @@ namespace Schiffe_versenken
                     shipcount = s * 2 + d * 3 + b * 3 + c;
                 }
                 MessageBox.Show("Sub Count: " + sub + "\n" + "Destroyer count: " + destroyer + "\n" + "Battleship count: " + battleship + "\n" + "Carrier count: " + carrier);
+                //get ip address
                 System.Net.IPAddress[] a = Dns.GetHostByName(Dns.GetHostName()).AddressList;
                 string ip = a[0].ToString();
                 MessageBox.Show("The servers IP-Address is: " + ip);
@@ -479,7 +480,7 @@ namespace Schiffe_versenken
             } else
             {
                 currentField = Fields[FieldsBox.SelectedIndex];
-                shoot.Set();
+                shoot.Set(); 
                 shoot.WaitOne();
                 int check = checkShips(Brushes.Green);
                 if(check == 1)
