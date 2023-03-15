@@ -13,12 +13,7 @@ namespace Taschenrechner_Skalierbar_Grammatik
         
     }
 
-    private Expression left;
-    private Expression right;
-    private Token operation;
-
     public static Expression Parse(List<Token> context)
     {
-        Expression l = MalDiv
     }
 }
