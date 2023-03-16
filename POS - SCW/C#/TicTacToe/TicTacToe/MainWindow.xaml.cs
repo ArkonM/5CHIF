@@ -477,7 +477,7 @@ namespace TicTacToe
                     }
                     dialog2.Close();
 
-                    /*
+                    /* IP des Servers zeigen
                     System.Net.IPAddress[] a = Dns.GetHostByName(Dns.GetHostName()).AddressList;
                     string ip = a[0].ToString();
                     MessageBox.Show("The servers IP-Address is: " + ip);
@@ -492,7 +492,7 @@ namespace TicTacToe
                 {
                     Title.Content = "TicTacToe - Client";
 
-                    /*
+                    /* Eingabefeld für die IP Adresse
                     IPDialog dialog2 = new IPDialog();
                     dialog2.ShowDialog();
                     if (dialog2.DialogResult == true)
