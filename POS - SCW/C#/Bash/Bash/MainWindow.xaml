@@ -14,11 +14,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="Title" FontStyle="Oblique" FontSize="24" Height="50"/>
-        <TextBox Grid.Row="1" x:Name="OutputBox"/>
-        <TextBox Grid.Row="2" x:Name="InputBox"/>
-        <Button Content="Send" Grid.Column="1" Grid.Row="2" Click="Button_Click"/>
+        <TreeView Grid.Row="1" x:Name="FileSystem"/>
+        <TextBox Grid.Row="2" x:Name="OutputBox"/>
+        <TextBox Grid.Row="3" x:Name="InputBox"/>
+        <Button Content="Send" Grid.Column="1" Grid.Row="3" Click="Button_Click"/>
     </Grid>
 </Window>

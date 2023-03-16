@@ -153,7 +153,7 @@
             Grid.RowSpan="4"
             Rows="4">
 
-            <Button
+            <Button              
                 Content="7"
                 Style="{StaticResource NumberButton}"
                 x:Name="input_Btn_7" Click="input_Btn_7_Click" />

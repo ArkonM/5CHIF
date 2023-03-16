@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace Bash
 {
-    public enum Command
+    public enum CommandEnum
     {
         DELETE,
         CHANGEDIRECTORY,
@@ -18,7 +18,7 @@ namespace Bash
 
     public class Token
     {
-        public Command Command { get; set; }
+        public CommandEnum Command { get; set; }
         public string Name { get; set; }
 
 
@@ -28,6 +28,7 @@ namespace Bash
             bool commandSelected = false;
             string s = "";
             char prev = new char();
+
             foreach(char c in com)
             {
                 commandSelected = false;
@@ -36,20 +37,16 @@ namespace Bash
                     tokens.Add(SelectCommand(s));
                     commandSelected = true;
                     s = "";
+                    prev = c;
                 } 
                 else if(prev == ';' && c == ' ')
-                {
-
-                }
+                { continue; }
                 else
                 {
                     s += c;
                 }
-                prev = c;
             }
-            if (commandSelected)
-                Name = s;
-            else
+            if (!commandSelected)
                 MessageBox.Show("Bitte geben Sie einen gültigen aufruf ein!");
 
             return tokens;
@@ -69,7 +66,7 @@ namespace Bash
                     break;
                 case "ls":
                     token.Command = Command.LISTITEMS;
-                    token.Name = s[1];
+                    token.Name = "";
                     break;
                 case "mkdir":
                     token.Command = Command.CREATEDIRECTORY;
