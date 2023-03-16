@@ -1,0 +1,146 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:comms="clr-namespace:Comms;assembly=Comms"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Hamster [Client]" Height="450" Width="800">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="DirectionValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="comms:Direction"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <Style x:Key="TextBox.DisabledIfConnectedStyle" TargetType="TextBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Connected}" Value="True">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0 0 0 5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Field" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Rows" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Rows, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 2" Padding="2 0" TextAlignment="Right" VerticalContentAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Columns" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Columns, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 0" Padding="2 0" TextAlignment="Right" VerticalContentAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="4" Text="Player" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Grid.Row="0" Grid.Column="5" Text="X" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding PlayerX, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 2" Padding="2 0" TextAlignment="Right" VerticalContentAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="5" Text="Y" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="6" Text="{Binding PlayerY, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 0" Padding="2 0" TextAlignment="Right" VerticalContentAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="7" Text="Face" TextAlignment="Center" VerticalAlignment="Center" Margin="10 0 0 0"/>
+            <ComboBox Grid.Row="1" Grid.Column="7" ItemsSource="{Binding Source={StaticResource DirectionValues}}" SelectedItem="{Binding PlayerFace, UpdateSourceTrigger=PropertyChanged}" Margin="10 2 0 0"/>
+            <TextBlock Grid.Row="0" Grid.Column="9" Text="Speed" TextAlignment="Center" FontWeight="Bold" FontSize="16"/>
+            <TextBox Grid.Row="1" Grid.Column="9" Text="{Binding Speed, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 0" Padding="2 0" TextAlignment="Right" VerticalContentAlignment="Center"/>
+        </Grid>
+        <TextBox Grid.Row="1" Text="{Binding Program}" AcceptsReturn="True" AcceptsTab="True" Padding="3 5"/>
+        <Grid Grid.Row="1" Background="#4000" VerticalAlignment="Bottom">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Error}" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <StackPanel Margin="20 10">
+                <TextBlock Text="Error:" Foreground="#c00" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Error}"/>
+            </StackPanel>
+            <Button Content="X" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5 3" Click="btnCloseError_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <TextBlock Text="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="2" HorizontalAlignment="Left" Margin="5 5 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Server" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Text="{Binding Host}" Style="{StaticResource TextBox.DisabledIfConnectedStyle}" Padding="2 0" VerticalContentAlignment="Center"/>
+            <TextBlock Grid.Column="2" Text=":" TextAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="3" Text="{Binding Port}" Style="{StaticResource TextBox.DisabledIfConnectedStyle}" Padding="2 0" TextAlignment="Right" VerticalContentAlignment="Center"/>
+            <Button Grid.Column="4" Margin="10 0" Padding="10 0" Click="btnConnect_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Content" Value="Connect"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Connected, NotifyOnSourceUpdated=True}" Value="True">
+                                <Setter Property="Content" Value="Disconnect"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <TextBlock Grid.Column="5" VerticalAlignment="Center">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Text" Value="Disconnected"/>
+                        <Setter Property="Foreground" Value="#f00"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Connected}" Value="True">
+                                <Setter Property="Text" Value="Connected"/>
+                                <Setter Property="Foreground" Value="#0c0"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <Button Grid.Row="2" Content="Execute" HorizontalAlignment="Right" Margin="0 5 0 0" Padding="10 0" Click="BtnExecute_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Connected}" Value="True">
+                            <Setter Property="IsEnabled" Value="True"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>
