@@ -51,7 +51,6 @@ namespace TicTacToe
     public partial class MainWindow : Window
     {
         Transfer t;
-        AutoResetEvent sendMSGEvent = new AutoResetEvent(false);
         AutoResetEvent clicked = new AutoResetEvent(false);
         private int _selectedIndex;
 
