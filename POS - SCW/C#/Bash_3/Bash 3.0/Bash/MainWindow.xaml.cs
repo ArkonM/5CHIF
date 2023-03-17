@@ -45,13 +45,15 @@ namespace Bash
     {
 
         public TreeViewItem _currentTreeView = new TreeViewItem();
-        public Path path = new Path();
+        public Path path { get; set; } = new Path();
 
         public MainWindow()
         {
             InitializeComponent();
             _currentTreeView.Header = "root";
             FileSystem.Items.Add(_currentTreeView);
+
+            this.DataContext = this;
         }
 
        
@@ -152,12 +154,8 @@ namespace Bash
         }
 
         private void ShowCurrentDirectory()
-        {
-            string currentDirectory = "Aktuelles Verzeichnis: " + GetFullPath(_currentTreeView) + "\n";
-            path.CurrentPath = currentDirectory;
-            printLine(currentDirectory);
-
-            DataContext = this;
+        { 
+            path.CurrentPath = GetFullPath(_currentTreeView);
         }
 
         private string GetFullPath(TreeViewItem item)

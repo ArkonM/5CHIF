@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bash"
-        mc:Ignorable="d"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -23,10 +23,10 @@
         
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Orientation="Vertical">
             <Label Content="Aktuelles Verzeichnis"/>
-            <Label x:Name="PathLabel" Content="{Binding Source=path, Path=CurrentPath}"/>
+            <Label x:Name="PathLabel" Content="{Binding Path=path.CurrentPath}"/>
         </StackPanel>
 
-        <TextBox Grid.Row="2" x:Name="OutputBox"/>
+        <TextBox Grid.Row="2" x:Name="OutputBox" IsEnabled="False"/>
         <TextBox Grid.Row="3" x:Name="InputBox"/>
         <Button Content="Send" Grid.Column="1" Grid.Row="3" Click="Button_Click"/>
     </Grid>

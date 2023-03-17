@@ -74,7 +74,7 @@ namespace Bash
                     token.Command = Command.CREATEDIRECTORY;
                     token.Name = s[1];
                     break;
-                case "remove":
+                case "rmdir":
                     token.Command = Command.DELETE;
                     token.Name = s[1];
                     break;
