@@ -1,0 +1,59 @@
+﻿<Window x:Class="PA3_Math.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PA3_Math"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TreeView Padding="2" x:Name="Expressions" Grid.Column="3" Grid.RowSpan="2">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type local:Expression}" ItemsSource="{Binding Expressions}">
+                    <TextBlock Text="{Binding Name}" />
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <ListBox Padding="2" Name="Tokens" Grid.Column="2" Grid.RowSpan="2"/>
+        <DockPanel>
+            <TextBlock x:Name="Result" DockPanel.Dock="Right" Margin="2"></TextBlock>
+            <TextBox Name="Formel" Margin="2"></TextBox>
+        </DockPanel>
+        <UniformGrid Columns="6" Grid.Row="1">
+            <Button Content="1" Click="AddSymbol"/>
+            <Button Content="2" Click="AddSymbol"/>
+            <Button Content="3" Click="AddSymbol"/>
+            <Button Content="+" Click="AddSymbol"/>
+            <Button Content="-" Click="AddSymbol"/>
+            <Button Content="%" Click="AddSymbol"/>
+            <Button Content="4" Click="AddSymbol"/>
+            <Button Content="5" Click="AddSymbol"/>
+            <Button Content="6" Click="AddSymbol"/>
+            <Button Content="*" Click="AddSymbol"/>
+            <Button Content="/" Click="AddSymbol"/>
+            <Button Content="²" Click="AddSymbol"/>
+            <Button Content="7" Click="AddSymbol"/>
+            <Button Content="8" Click="AddSymbol"/>
+            <Button Content="9" Click="AddSymbol"/>
+            <Button Content="^" Click="AddSymbol"/>
+            <Button Content="C" Click="Clear"/>
+            <Label></Label>
+            <Button Click="AddSymbol">,</Button>
+            <Button Content="0" Click="AddSymbol"/>
+            <Label></Label>
+            <Button Content="(" Click="AddSymbol"/>
+            <Button Content=")" Click="AddSymbol"/>
+            <Button Content="=" Click="Calculate"/>
+        </UniformGrid>
+    </Grid>
+</Window>

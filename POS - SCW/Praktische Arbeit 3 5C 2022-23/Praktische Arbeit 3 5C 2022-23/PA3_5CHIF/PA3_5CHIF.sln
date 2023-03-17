@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PA3_Client", "PA3_Client\PA3_Client.csproj", "{5AAF4B6F-CE67-4782-9360-0B74FDCC31AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PA3_Math", "PA3_Math\PA3_Math.csproj", "{772D4ABA-9EF5-4019-9806-2A52E78EF7AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AAF4B6F-CE67-4782-9360-0B74FDCC31AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AAF4B6F-CE67-4782-9360-0B74FDCC31AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AAF4B6F-CE67-4782-9360-0B74FDCC31AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AAF4B6F-CE67-4782-9360-0B74FDCC31AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{772D4ABA-9EF5-4019-9806-2A52E78EF7AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{772D4ABA-9EF5-4019-9806-2A52E78EF7AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{772D4ABA-9EF5-4019-9806-2A52E78EF7AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{772D4ABA-9EF5-4019-9806-2A52E78EF7AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E14608D2-1118-40B2-81FF-1076E5EE616B}
+	EndGlobalSection
+EndGlobal
