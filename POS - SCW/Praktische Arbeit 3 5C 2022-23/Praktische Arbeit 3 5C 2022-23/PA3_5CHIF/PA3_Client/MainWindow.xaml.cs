@@ -181,8 +181,7 @@ namespace PA3_Client
                 switch (t.m.Type)
                 {
                     case MessageType.SAVE:
-                        MessageBox.Show(index.ToString());
-                        cells[index].Value = t.m.Nearby[0].Count;
+                        revealFields();
                         break;
                     case MessageType.EXPLODE:
                         MessageBox.Show("Sie sind leider Explodiert!", "EXPLOSION");
@@ -203,6 +202,18 @@ namespace PA3_Client
             }
 
             this.DataContext = this;
+        }
+
+
+        void revealFields()
+        {
+            foreach(var cell in t.m.Nearby)
+            {
+                for (int i = 0; i < Config.Height * Config.Width; i++)
+                {
+                    if (cells[i].X == cell.X && cells[i].Y == cell.Y) cells[i].Value = cell.Count;
+                }
+            }
         }
 
 

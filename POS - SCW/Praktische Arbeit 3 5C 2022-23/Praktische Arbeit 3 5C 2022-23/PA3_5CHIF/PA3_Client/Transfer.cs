@@ -12,8 +12,6 @@ using System.Xaml;
 
 namespace PA3_Client
 {
-    
-
     public class Transfer
     {
         private TcpClient client;
