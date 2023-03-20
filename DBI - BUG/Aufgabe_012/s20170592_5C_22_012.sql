@@ -50,7 +50,7 @@ select decode(grouping(Monat),1, 'Alle Monate', Monat) as Monat
 ;
 
 
-clear screen
+--clear screen
 --s20170592
 --Übung d
 select decode(Produkt, 'Pizza Hawaii', 'Pizza mit Ananas', Produkt) as Produkt
@@ -98,7 +98,122 @@ select Monat, Produkt, sum(Anzahl) as Anzahl
 --Die Datensätze in denen mehr als nur ein Wert angezeigt werden müsste, sind leer bzw. null
 
 
+clear screen
 
+--s20170592
+--Übung g
+select decode(grouping(Monat), 1, 'Alle Monate', Monat) as Monat
+     , decode(grouping(Produkt), 1, 'Alle Produkte', Produkt) as Produkt
+     , sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ group by cube(Monat, Produkt)
+;
+
+
+--s20170592
+--Übung h
+--ROLL-UP in kombination mit group by gruppiert die angegebenen Tabellenspalten
+--Diese Gruppierung verläuft so, dass zuerst nach keinem gruppiert wird und dann
+--von links nach rechts der group by Klausel immer eine Spalte mehr zu der gruppierung
+--hinzugefügt wird
+
+--CUBE funktioniert ähnlich nur dass CUBE nach allen Möglichkeiten der gegebenen Spalten
+--gruppiert wird. Bei verwendung von CUBE wird 2^n-1 oft gruppiert, wobei n die Anzahl der
+--gegebenen Spalten in der group by Cube Klausel ist
+
+
+clear screen
+--s20170592
+--Übung i
+select Monat, Produkt, sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ where Monat = '2006-1'
+ group by Monat, Produkt
+
+
+union all
+
+select Monat
+     , 'Alle Produkte'
+     , sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ where Monat = '2006-1'
+ group by Monat
+ 
+ union all
+ 
+ select Monat, Produkt, sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ where Monat = '2006-2'
+ group by Monat, Produkt
+
+
+union all
+
+select Monat
+     , 'Alle Produkte'
+     , sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ where Monat = '2006-2'
+ group by Monat
+
+union all
+
+select 'Alle Monate'
+     , 'Alle Produkte'
+     , sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+;
+/
+
+
+select 'Alle Monate'
+     , 'Alle Produkte'
+     , sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+
+union all
+
+select 'Alle Monate'
+     , Produkt
+     , sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ where Monat = '2006-1'
+ group by Produkt
+ 
+union all
+
+select Monat
+     , 'Alle Produkte'
+     , sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ where Monat = '2006-1'
+ group by Monat
+ 
+union all
+
+select Monat, Produkt, sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ where Monat = '2006-1'
+ group by Monat, Produkt
+
+union all
+
+select Monat
+     , 'Alle Produkte'
+     , sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ where Monat = '2006-2'
+ group by Monat
+ 
+union all
+ 
+select Monat, Produkt, sum(Anzahl) as Anzahl
+  from Ort_Produkt_Monat_Verkauf
+ where Monat = '2006-2'
+ group by Monat, Produkt
+;
+/
 
 
 
