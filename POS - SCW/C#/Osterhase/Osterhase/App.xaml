@@ -1,7 +1,7 @@
-﻿<Application x:Class="Osterhase_Hilfsprogramm.App"
+﻿<Application x:Class="Osterhase.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Osterhase_Hilfsprogramm"
+             xmlns:local="clr-namespace:Osterhase"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
