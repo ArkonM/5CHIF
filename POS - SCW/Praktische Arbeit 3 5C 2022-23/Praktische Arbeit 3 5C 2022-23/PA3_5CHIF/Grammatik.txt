@@ -1,5 +1,4 @@
 <PlusMinus> ::= <MalDividiert> | <PlusMinus>+<MalDividiertModulo> | <PlusMinus>-<MalDividiertModulo>
-<Modulo> ::= <HochQuadrat> | <Modulo>%<HochQuadrat>
 <MalDividiertModulo> ::= <HochQuadrat> | <MalDividiertModulo>*<HochQuadrat> | <MalDividiertModulo>/<HochQuadrat> | <MalDividiertModulo>%<HochQuadrat>
 <HochQuadrat> ::= <Zahl> | <Klammern> | <Zahl>^<HochQuadrat> | <Klammern>^<HochQuadrat>
 <Klammern> ::= (<PlusMinus>)

@@ -47,6 +47,7 @@ namespace PA3_Math
             } else if (context.Count > 0 && context[0].Value == "²")
             {
                 context[0].Value = "2";
+                context[0].Type = TokenType.Literal;
                 HochQuadrat h = new HochQuadrat();
                 h.left = l;
                 h.right = HochQuadrat.Parse(context);
