@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <!-- Beschreibungselemente -->
+  <title>Ein tooler Bär</title>
+  <desc>Einfaches Bärbeispiel.</desc>
+
+
+  <circle cx="60" cy="60" r="30" fill="black" stroke="black"/>
+  <circle cx="140" cy="60" r="30" fill="black" stroke="black"/>
+
+  <circle cx="100" cy="100" r="60" fill="yellow" stroke="black"/>
+
+  <circle cx="100" cy="125" r="16" fill="red" stroke="black"/>
+  <circle cx="100" cy="117" r="16" fill="yellow" stroke="yellow"/>
+
+  <circle cx="100" cy="95" r="13" fill="red" stroke="red"/>
+
+  <circle cx="80" cy="75" r="13" fill="white" stroke="black"/>
+  <circle cx="120" cy="75" r="13" fill="white" stroke="black"/>
+
+  <circle cx="80" cy="77" r="10" fill="black" stroke="black"/>
+  <circle cx="120" cy="77" r="10" fill="black" stroke="black"/>
+
+
+
+</svg>

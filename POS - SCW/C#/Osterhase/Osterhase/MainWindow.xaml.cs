@@ -1,4 +1,5 @@
-﻿using LinqToDB;
+﻿using DataModel;
+using LinqToDB;
 using LinqToDB.Data;
 using LinqToDB.Mapping;
 using System;
@@ -21,25 +22,6 @@ namespace Osterhase
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-
-    [Table("Personen")]
-    public class Person
-    {
-        [Column("ID", IsPrimaryKey = true)]
-        public int id { get; set; }
-
-        [Column("Name")]
-        public string name { get; set; }
-
-        [Column("Alter")]
-        public int age { get; set; }
-
-        public override string ToString()
-        {
-            return name + " " + age;
-        }
-    }
-
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -47,12 +29,12 @@ namespace Osterhase
             InitializeComponent();
 
             DataConnection dc = new DataConnection("SQLite", "Data Source=Personen.db");
-            var personen = dc.GetTable<Person>();
+            var personen = dc.GetTable<Personen>();
             var query = from x in personen select x;
             PersonenListe.ItemsSource = query;
 
 
-            dc.Insert(new Person() { name = "Hans", age = 50 });
+            dc.Insert(new Personen() { Name = "Hans", Alter = 50 });
 
 
             PersonenListe.ItemsSource = query;
