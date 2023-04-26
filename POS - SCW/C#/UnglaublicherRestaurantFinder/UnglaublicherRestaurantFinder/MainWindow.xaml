@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnglaublicherRestaurantFinder"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -17,7 +18,35 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-    <Label x:Name="Schefbänker"/>
+        <ListView Name="lstView" ItemsSource="{Binding Path=restaurants}" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Name" Width="140" DisplayMemberBinding="{Binding Path=Name}" />
+                        <GridViewColumn Header="Bewertung" Width="80" DisplayMemberBinding="{Binding Path=Review}" />
+                        <GridViewColumn Header="Beschreibung" Width="250" DisplayMemberBinding="{Binding Path=Description}" />
+                        <GridViewColumn Header="Kategorie" Width="60" DisplayMemberBinding="{Binding Path=Kategorie}" />
+                        <GridViewColumn Header="Long" Width="40" DisplayMemberBinding="{Binding Path=Longitude}" />
+                        <GridViewColumn Header="Lat" Width="40" DisplayMemberBinding="{Binding Path=Latitude}" />
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
         <Button Grid.Column="2" Margin="20" Content="Daten Hinzufügen" Click="Open_AddDataPage"/>
+        <Canvas x:Name="canvas" Grid.ColumnSpan="2" Grid.Row="1">
+            <Canvas.Background>
+                <ImageBrush ImageSource="C:\GitHub\5CHIF\POS - SCW\C#\UnglaublicherRestaurantFinder\UnglaublicherRestaurantFinder\Stadtplan-Wiener-Neustadt.jpg"/>
+            </Canvas.Background>
+        </Canvas>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+            <Label Content="Kategorie-Filter"/>
+            <ComboBox x:Name="Combo_categories" DisplayMemberPath="Name" ItemsSource="{Binding Path=categories}" SelectionChanged="Combo_categories_SelectionChanged"/>
+            <Label Content="Kategorie-Hinzufügen"/>
+            <TextBox x:Name="Add_Category_Name"/>
+            <Button Content="Hinzufügen" Click="Add_Category"/>
+
+        </StackPanel>
     </Grid>
 </Window>

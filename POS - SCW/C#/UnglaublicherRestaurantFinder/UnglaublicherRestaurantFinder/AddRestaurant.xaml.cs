@@ -48,14 +48,14 @@ namespace UnglaublicherRestaurantFinder
 
         private void Confirm(object sender, RoutedEventArgs e)
         {
-            if (Rest_Name.Text == "" || Rest_Desc.Text == "" || Review_Slider.Value < 0 || Review_Slider.Value >= 1 || Rest_Long.Text == "" || Rest_Lat.Text == "") { MessageBox.Show("Error", "Nicht alle Argumente eingegeben!"); return; }
+            if (Rest_Name.Text == "" || Rest_Desc.Text == "" || Review_Slider.Value < 0 || Review_Slider.Value > 5 || Rest_Long.Text == "" || Rest_Lat.Text == "") { MessageBox.Show("Error", "Nicht alle Argumente eingegeben!"); return; }
             Restaurant restaurant = new Restaurant();
             restaurant.Name = Rest_Name.Text;
             restaurant.Description = Rest_Desc.Text;
             restaurant.Review = long.Parse(Review_Slider.Value.ToString());
             restaurant.Longitude = decimal.Parse(Rest_Long.Text);
             restaurant.Latitude = decimal.Parse(Rest_Lat.Text);
-            restaurant.Kategorie = ((Kategorie)Combo_categories.SelectedItem).KatId;
+            restaurant.KatNr = ((Kategorie)Combo_categories.SelectedItem).KatId;
 
             main.connection.Insert(restaurant);
 

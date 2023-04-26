@@ -23,7 +23,7 @@ namespace DataModel
 		/// <summary>
 		/// FK_restaurants_0_0 backreference
 		/// </summary>
-		[Association(ThisKey = nameof(KatId), OtherKey = nameof(Restaurant.Kategorie))]
+		[Association(ThisKey = nameof(KatId), OtherKey = nameof(Restaurant.KatNr))]
 		public IEnumerable<Restaurant> Restaurants { get; set; } = null!;
 		#endregion
 	}

@@ -159,12 +159,10 @@ namespace PA3_Client
 
         public ObservableCollection<Cell> cells { get; set;} = new ObservableCollection<Cell>();
 
-        
-
-
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
 
@@ -189,20 +187,18 @@ namespace PA3_Client
                     cells.Add(new Cell { X = j, Y = i});
                 }
             }
-
-            this.DataContext = this;
         }
 
 
-        public void revealFields(MSG m)
-        {
-            foreach(var cell in m.Nearby)
-            {
-                for (int i = 0; i < Config.Height * Config.Width; i++)
-                {
+        public void revealFields(MSG m) 
+        { 
+           foreach(var cell in m.Nearby)
+           {
+               for (int i = 0; i < Config.Height * Config.Width; i++)
+               {
                     if (cells[i].X == cell.X && cells[i].Y == cell.Y) cells[i].Value = cell.Count;
-                }
-            }
+               }
+           }
         }
 
 
@@ -220,8 +216,6 @@ namespace PA3_Client
                 MSG config = new MSG { Type = MessageType.NEW, Config = new Config { Height = Config.Height, Width = Config.Width, Mines = Config.Mines } };
 
                 t.Send(config);
-
-
 
                 fillPlayingField();
             }

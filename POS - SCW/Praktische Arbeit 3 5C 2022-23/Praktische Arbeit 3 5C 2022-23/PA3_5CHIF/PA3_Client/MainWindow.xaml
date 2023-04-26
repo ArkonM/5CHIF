@@ -25,15 +25,15 @@
         <ListBox Grid.Row="1" x:Name="PlayingField" ItemsSource="{Binding Path=cells}" SelectionChanged="PlayingField_SelectionChanged">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Rows="{
-                          Binding RelativeSource={
-                            RelativeSource FindAncestor, 
-                            AncestorType={x:Type Window}},
-                          Path=Config.Height}" Columns="{
-                          Binding RelativeSource={
-                            RelativeSource FindAncestor, 
-                            AncestorType={x:Type Window}},
-                          Path=Config.Width}"/>
+                    <UniformGrid Rows="{Binding RelativeSource={
+                                        RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}},
+                                        Path=Config.Height}" 
+                                Columns="{
+                                        Binding RelativeSource={
+                                        RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}},
+                                        Path=Config.Width}"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemContainerStyle>
@@ -81,7 +81,7 @@
                                         <Setter Property="Foreground" Value="Red" />
                                         <Setter Property="Background" Value="LightGray" />
                                     </DataTrigger>
-                                    <DataTrigger Binding="{Binding Path=Value}" Value="0">
+                                    <DataTrigger Binding="{Binding Path=Value}" Value="8">
                                         <Setter Property="Foreground" Value="DarkRed" />
                                         <Setter Property="Background" Value="LightGray" />
                                     </DataTrigger>

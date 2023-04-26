@@ -21,13 +21,13 @@ namespace DataModel
 		[Column("Latitude"                                                                                     )] public decimal? Latitude    { get; set; } // numeric
 		[Column("Review"                                                                                       )] public long?    Review      { get; set; } // integer
 		[Column("Description"                                                                                  )] public string?  Description { get; set; } // text(max)
-		[Column("Kategorie"                                                                                    )] public long?    Kategorie   { get; set; } // integer
+		[Column("KatNr"                                                                                        )] public long?    KatNr       { get; set; } // integer
 
 		#region Associations
 		/// <summary>
 		/// FK_restaurants_0_0
 		/// </summary>
-		[Association(ThisKey = nameof(Kategorie), OtherKey = nameof(DataModel.Kategorie.KatId))]
+		[Association(ThisKey = nameof(KatNr), OtherKey = nameof(Kategorie.KatId))]
 		public Kategorie? FkRestaurants00 { get; set; }
 		#endregion
 	}
