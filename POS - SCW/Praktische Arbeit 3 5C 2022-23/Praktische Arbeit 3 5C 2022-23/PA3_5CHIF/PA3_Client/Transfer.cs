@@ -1,32 +1,36 @@
-﻿using System;
+﻿using PA3_Client;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Net.Sockets;
-using System.Threading;
-using System.Xml.Serialization;
 using System.IO;
-using System.Xml;
+using System.Linq;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
-using System.Xaml;
+using System.Windows.Interop;
+using System.Xml.Serialization;
 
 namespace PA3_Client
 {
     public class Transfer
     {
         private TcpClient client;
+        private Receiver receiver;
         private NetworkStream stream;
         private StreamReader reader;
         private StreamWriter writer;
         private XmlSerializer xml = new XmlSerializer(typeof(MSG));
         private bool running = true;
-        public AutoResetEvent auto = new AutoResetEvent(false);
-        public MSG m;
+        //byte[] buffer = new byte[1000];
 
-        public Transfer(TcpClient c)
+        public Transfer(TcpClient c, Receiver r)
         {
             client = c;
+            //client.ReceiveTimeout = 2000;
+            receiver = r;
             stream = client.GetStream();
+            //stream.ReadTimeout = 5000;
             reader = new StreamReader(stream);
             writer = new StreamWriter(stream);
         }
@@ -55,6 +59,7 @@ namespace PA3_Client
             writer.Close();
             stream.Close();
             client.Close();
+            //t.Interrupt();
         }
 
         private void Run()
@@ -70,12 +75,15 @@ namespace PA3_Client
                         break;
                     if (line.Length > 0)
                     {
-                        msg += line + "\n";
+                        msg += line + "\n"; //\n wird durch die readline gelöscht
                         if (msg.Contains("</MSG>"))
                         {
                             StringReader sr = new StringReader(msg);
-                            m = (MSG)xml.Deserialize(sr);
-                            auto.Set();
+                            Application.Current.Dispatcher.Invoke((Action)(delegate
+                            {
+                                MSG m = (MSG)xml.Deserialize(sr);
+                                receiver.ReceiveMessage(m, this);
+                            }));
                             msg = "";
                         }
                     }
@@ -83,8 +91,13 @@ namespace PA3_Client
                 catch (Exception ex)
                 {
                     //MessageBox.Show(ex.Message);
+
                 }
             }
+            Application.Current.Dispatcher.Invoke((Action)(delegate
+            {
+                receiver.TransferDisconnected(this);
+            }));
             stream.Close();
             client.Close();
             reader.Close();
@@ -94,11 +107,47 @@ namespace PA3_Client
 
         public void Send(MSG m)
         {
+
             StringWriter sw = new StringWriter();
             xml.Serialize(sw, m);
             String msg = sw.ToString();
             writer.WriteLine(msg);
             writer.Flush();
         }
+
+        /*
+            private void Run()
+            {
+                try
+                {
+                    while (running)
+                    {
+                        String length = reader.ReadLine();
+                        int l = int.Parse(length);
+                        char [] ca = new char[l];
+                        reader.ReadBlock(ca, 0, l);
+                        String msg = new String(ca);
+                        StringReader sr = new StringReader(msg);
+                        MSG m = (MSG)xml.Deserialize(sr);
+                        receiver.ReceiveMessage(m, this);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+
+            public void Send(MSG m)
+            {
+                StringWriter sw = new StringWriter();
+                xml.Serialize(sw, m);
+                char [] ca = sw.ToString().ToCharArray();
+                writer.WriteLine("" + ca.Length);
+                writer.Flush();
+                writer.Write(ca);
+                writer.Flush();
+            }
+        */
     }
 }

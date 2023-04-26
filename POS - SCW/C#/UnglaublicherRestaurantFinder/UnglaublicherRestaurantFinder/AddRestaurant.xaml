@@ -1,0 +1,49 @@
+﻿<Window x:Class="UnglaublicherRestaurantFinder.AddRestaurant"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UnglaublicherRestaurantFinder"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="200"
+      Title="AddRestaurant"
+        Loaded="Window_Loaded">
+
+    <StackPanel Orientation="Vertical">
+        <Label Content="Restaurant Hinzufügen:" FontSize="20" HorizontalAlignment="Center"/>
+        <Label Content="Name:"/>
+        <TextBox x:Name="Rest_Name"/>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Review:"/>
+            <Label Content="{Binding ElementName=Review_Slider, Path=Value}"/>
+        </StackPanel>
+        <Slider x:Name="Review_Slider" Minimum="0" Maximum="5" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight"/>
+        <Label Content="Beschreibung:"/>
+        <TextBox x:Name="Rest_Desc"/>
+        <Label Content="Kategorie"/>
+
+        <ComboBox x:Name="Combo_categories" DisplayMemberPath="Name"/>
+
+        <Label Content="Longitude:"/>
+        <TextBox x:Name="Rest_Long"/>
+        <Label Content="Latitude:"/>
+        <TextBox x:Name="Rest_Lat"/>
+        <Button Content="Bilder hinzufügen" Click="Select_Pictures"/>
+
+        <ScrollViewer Height="50">
+            <StackPanel Orientation="Horizontal">
+                <ListBox x:Name="BilderPreview">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+
+                            <Image Source="{Binding .}" MaxHeight="70"/>
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Content="Bestätigen" Click="Confirm"/>
+    </StackPanel>
+
+</Window>

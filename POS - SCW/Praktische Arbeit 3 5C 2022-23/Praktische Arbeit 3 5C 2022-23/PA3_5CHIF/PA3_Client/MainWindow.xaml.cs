@@ -167,6 +167,7 @@ namespace PA3_Client
             InitializeComponent();
         }
 
+
         private void PlayingField_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = PlayingField.SelectedIndex;
@@ -175,18 +176,6 @@ namespace PA3_Client
                 MSG click = new MSG { Type = MessageType.PICK, Pick = new Pick { X = cells[index].X, Y = cells[index].Y} };
 
                 t.Send(click);
-
-                t.auto.WaitOne();
-
-                switch (t.m.Type)
-                {
-                    case MessageType.SAVE:
-                        revealFields();
-                        break;
-                    case MessageType.EXPLODE:
-                        MessageBox.Show("Sie sind leider Explodiert!", "EXPLOSION");
-                        break;
-                }
             }
         }
 
@@ -205,9 +194,9 @@ namespace PA3_Client
         }
 
 
-        void revealFields()
+        public void revealFields(MSG m)
         {
-            foreach(var cell in t.m.Nearby)
+            foreach(var cell in m.Nearby)
             {
                 for (int i = 0; i < Config.Height * Config.Width; i++)
                 {
@@ -220,10 +209,11 @@ namespace PA3_Client
         void Button_Click(object sender, RoutedEventArgs e)
         {
             TcpClient client = null;
+            Receiver receiver = new ReceiverMessage(this);
             try
             {
                 client = new TcpClient("localhost", 12345);
-                t = new Transfer(client);
+                t = new Transfer(client, receiver);
 
                 t.Start();
 

@@ -20,6 +20,7 @@ namespace PA3_Math
                 if (context.Count > 0 && context[0].Value == ")")
                 {
                     context.RemoveAt(0);
+
                     Klammer h = new Klammer();
                     h.Name = "Klammer";
                     h.Expressions.Add(e);
