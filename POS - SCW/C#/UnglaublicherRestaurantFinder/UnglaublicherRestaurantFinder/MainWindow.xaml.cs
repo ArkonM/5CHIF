@@ -130,5 +130,24 @@ namespace UnglaublicherRestaurantFinder
                 getRestaurants();
             }
         }
+
+        private void canvas_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var x = e.GetPosition((Canvas)sender).X;
+            var y = e.GetPosition((Canvas)sender).Y;
+
+            Ellipse ellipse = new Ellipse();
+            ellipse.Width = 8;
+            ellipse.Height = 8;
+            ellipse.Fill = Brushes.Red;
+            Canvas.SetLeft(ellipse, x - 4);
+            Canvas.SetTop(ellipse, y - 4);
+            canvas.Children.Add(ellipse);
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            paint_Restaurant();
+        }
     }
 }

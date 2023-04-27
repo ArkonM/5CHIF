@@ -1,0 +1,19 @@
+default namespace = ""
+
+grammar {
+
+  start = element kurslisten {
+            kurstermin+
+          }
+
+  kurstermin = element kurstermin {
+  	      attribute kursname { text },
+  	      attribute datum { date },
+  	      (teilnehmer+)?
+              }
+              
+  teilnehmer = element teilnehmer {
+  	      attribute fname { text },
+  	      attribute vname { text }
+              }
+}

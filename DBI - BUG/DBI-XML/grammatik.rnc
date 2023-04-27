@@ -1,0 +1,32 @@
+default namespace = ""
+
+grammar {
+
+  start = element lt {
+            lieferant+,
+            teil+
+          }
+
+  lieferant = element lieferant {
+  	      attribute lnr { xsd:string },
+  	      attribute lname { xsd:string },
+  	      attribute rabatt { xsd:positiveInteger },
+  	      attribute ort { xsd:string },
+              liefert+?
+              }
+            
+  liefert = element liefert {
+            attribute tnr { xsd:string },
+            attribute menge { xsd:positiveInteger }
+            }        
+          
+          
+  teil = element teil {
+           attribute tnr { xsd:string },
+           attribute tname { xsd:string },
+           attribute farbe { xsd:string },
+           attribute preis { xsd:positiveInteger },
+           attribute ort { xsd:string }
+        }
+
+}

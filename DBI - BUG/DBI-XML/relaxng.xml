@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>            
+   
+<lt>
+	<lieferant lnr="L1" lname="Schmid" rabatt="20" ort="London">
+		<liefert tnr="T1" menge="300"/>
+		<liefert tnr="T2" menge="200"/>
+		<liefert tnr="T3" menge="400"/>
+		<liefert tnr="T4" menge="200"/>
+		<liefert tnr="T5" menge="100"/>
+		<liefert tnr="T6" menge="100"/>
+	</lieferant>
+	<lieferant lnr="L2" lname="Jonas" rabatt="10" ort="Paris">
+		<liefert tnr="T1" menge="300"/>
+		<liefert tnr="T2" menge="400"/>
+	</lieferant>
+	<lieferant lnr="L3" lname="Berger" rabatt="30" ort="Paris">
+		<liefert tnr="T2" menge="400"/>	
+	</lieferant>
+		<lieferant lnr="L4" lname="Klein" rabatt="20" ort="London">
+		<liefert tnr="T2" menge="200"/>
+		<liefert tnr="T4" menge="300"/>
+		<liefert tnr="T5" menge="400"/>
+	</lieferant>
+	<lieferant lnr="L5" lname="Adam" rabatt="30" ort="Athen"/>
+	<teil tnr="T1" tname="Mutter" farbe="rot" preis="12" ort="London"/>
+	<teil tnr="T2" tname="Bolzen" farbe="gelb" preis="17" ort="Paris"/>
+	<teil tnr="T3" tname="Schraube" farbe="blau" preis="17" ort="Rom"/>
+	<teil tnr="T4" tname="Schraube" farbe="rot" preis="14" ort="London"/>
+	<teil tnr="T5" tname="Welle" farbe="blau" preis="12" ort="Paris"/>
+	<teil tnr="T6" tname="Zahnrad" farbe="rot" preis="19" ort="London"/>
+</lt>

@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="PersonenListe"></ListBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        
+        
+        <Canvas Grid.ColumnSpan="2" Grid.Row="1">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="./images/map.jpg"/>
+                </Canvas.Background>
+        </Canvas>
     </Grid>
 </Window>

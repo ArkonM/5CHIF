@@ -1,0 +1,6 @@
+<!DOCTYPE park SYSTEM "wildpark.dtd">
+<?xml-stylesheet type="text/xsl" href="wildpark.xsl"?>
+<park name="Lincoln Natural Forest">
+	<trail dist="3400" climb="medium">Canyon Trail</trail>
+	<trail climb="easy" dist="1200">Pickle Madden Trail</trail>
+</park>

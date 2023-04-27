@@ -1,0 +1,15 @@
+default namespace = ""
+
+grammar {
+
+  start = element park {
+            attribute name { text },
+            trail+
+          }
+
+  trail = element trail {
+  	      attribute dist { text },
+  	      attribute climb { "easy" | "medium" | "hard" },
+  	      text
+              }
+}
