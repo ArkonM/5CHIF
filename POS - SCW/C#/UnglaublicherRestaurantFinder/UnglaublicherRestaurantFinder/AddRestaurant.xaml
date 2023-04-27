@@ -30,18 +30,21 @@
         <TextBox x:Name="Rest_Lat"/>
         <Button Content="Bilder hinzufügen" Click="Select_Pictures"/>
 
-        <ScrollViewer Height="50">
-            <StackPanel Orientation="Horizontal">
-                <ListBox x:Name="BilderPreview">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
+        <ScrollViewer Height="200">
+            <ListBox x:Name="BilderPreview">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
 
-                            <Image Source="{Binding .}" MaxHeight="70"/>
+                        <Image Source="{Binding .}" Width="100"/>
 
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
         </ScrollViewer>
         <Button Content="Bestätigen" Click="Confirm"/>
     </StackPanel>

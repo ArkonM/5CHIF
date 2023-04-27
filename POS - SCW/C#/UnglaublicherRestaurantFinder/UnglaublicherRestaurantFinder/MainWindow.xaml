@@ -37,7 +37,7 @@
         <Button Grid.Column="2" Margin="20" Content="Daten Hinzufügen" Click="Open_AddDataPage"/>
         <Canvas x:Name="canvas" Grid.ColumnSpan="2" Grid.Row="1" MouseDown="canvas_MouseDown">
             <Canvas.Background>
-                <ImageBrush ImageSource="D:\Github\5CHIF\POS - SCW\C#\UnglaublicherRestaurantFinder\UnglaublicherRestaurantFinder\Stadtplan-Wiener-Neustadt.jpg"/>
+                <ImageBrush ImageSource="C:\Github\5CHIF\POS - SCW\C#\UnglaublicherRestaurantFinder\UnglaublicherRestaurantFinder\Stadtplan-Wiener-Neustadt.jpg"/>
             </Canvas.Background>
         </Canvas>
 
