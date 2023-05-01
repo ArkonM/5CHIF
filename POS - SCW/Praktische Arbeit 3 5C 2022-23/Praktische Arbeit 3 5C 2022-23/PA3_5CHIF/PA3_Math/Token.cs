@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PA3_Math
 {
-    public enum TokenType { Literal, Bracket, Operator}
+    public enum TokenType { Literal, Bracket, Operator }
 
     public class Token
     {

@@ -25,7 +25,7 @@ namespace UnglaublicherRestaurantFinder
         {
             InitializeComponent();
             connection = new DatabaseDb("SQLite", "Data Source=./database.db");
-            this.DataContext = this;
+            DataContext = this;
         }
 
         private void getCategories()
@@ -57,8 +57,7 @@ namespace UnglaublicherRestaurantFinder
 
         private void Open_AddDataPage(object sender, RoutedEventArgs e)
         {
-            AddRestaurant dialog = new AddRestaurant();
-            dialog.main = this;
+            AddRestaurant dialog = new AddRestaurant(this);
             dialog.ShowDialog();
             if (dialog.DialogResult == true) 
             {

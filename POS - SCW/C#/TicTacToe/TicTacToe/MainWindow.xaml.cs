@@ -78,15 +78,11 @@ namespace TicTacToe
                 Environment.Exit(e.ErrorCode);
             }
 
-            TcpClient client = null;
-            NetworkStream netStream = null;
-            client = listener.AcceptTcpClient();
+            TcpClient client = listener.AcceptTcpClient();
 
             try
             {
                 var random = new Random();
-                // Generiere eine Client Verbindung
-                netStream = client.GetStream();
                 //ReceiverLogin r = new ReceiverLogin();
                 Transfer t = new Transfer(client);
                 t.Start();

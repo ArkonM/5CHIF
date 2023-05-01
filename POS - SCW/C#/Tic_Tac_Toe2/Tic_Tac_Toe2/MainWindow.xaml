@@ -1,0 +1,49 @@
+﻿<Window x:Class="Tic_Tac_Toe2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tic_Tac_Toe2"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="505">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Wer bin ich?">
+                <MenuItem Header="Server" Click="Start_Server"/>
+                <MenuItem Header="Client" Click="Start_Client"/>
+                <MenuItem Header="Restart" Click="Restart"/>
+            </MenuItem>
+            
+        </Menu>
+        <Label x:Name="ClientOrServer" FontStyle="Oblique" FontSize="24" DockPanel.Dock="Top"/>
+        <ListBox x:Name="playingField" SelectionChanged="playingField_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderBrush="Black" BorderThickness="3" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="3" Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Player}" Value="Client">
+                            <Setter Property="Background" Value="LightGreen"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Player}" Value="Server">
+                            <Setter Property="Background" Value="Pink"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+    </DockPanel>
+    
+</Window>

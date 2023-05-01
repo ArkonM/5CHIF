@@ -45,11 +45,11 @@ namespace Hamster_Parser
             Spielfeld.ItemsSource = fields;
         }
 
-        void FillField()
+        private void FillField()
         {
             for (int y = 0; y < H; y++)
             {
-                for(int x = 0; x < W; x++)
+                for (int x = 0; x < W; x++)
                 {
                     fields.Add(new Field(x, y));
                 }

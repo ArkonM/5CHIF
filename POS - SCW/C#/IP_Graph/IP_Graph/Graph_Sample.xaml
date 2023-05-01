@@ -1,0 +1,4 @@
+﻿xmlns:GraphControl="clr-namespace:GraphControl;assembly=GraphControl"
+   
+<GraphControl:Graph StartChanged="test_StartChanged" EndChanged="test_EndChanged" Name="test"/>
+

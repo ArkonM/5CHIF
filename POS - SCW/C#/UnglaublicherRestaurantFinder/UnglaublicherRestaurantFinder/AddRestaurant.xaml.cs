@@ -29,9 +29,10 @@ namespace UnglaublicherRestaurantFinder
 
         public MainWindow main;
 
-        public AddRestaurant()
+        public AddRestaurant(MainWindow _main)
         {
             InitializeComponent();
+            main = _main;
         }
 
 
