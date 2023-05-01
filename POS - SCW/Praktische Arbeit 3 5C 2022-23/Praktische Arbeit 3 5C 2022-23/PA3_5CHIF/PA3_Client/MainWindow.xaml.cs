@@ -191,13 +191,10 @@ namespace PA3_Client
 
 
         public void revealFields(MSG m) 
-        { 
+        {
            foreach(var cell in m.Nearby)
            {
-               for (int i = 0; i < Config.Height * Config.Width; i++)
-               {
-                    if (cells[i].X == cell.X && cells[i].Y == cell.Y) cells[i].Value = cell.Count;
-               }
+                cells.FirstOrDefault(cel => cel.X == cell.X && cel.Y == cell.Y).Value = cell.Count;
            }
         }
 
